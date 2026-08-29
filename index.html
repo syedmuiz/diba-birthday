@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Caveat:wght@500;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     Personalize everything in script.js under the CONFIG object.
+     Drop real photos into /images/us/ and /images/food/ and
+     reference them in CONFIG.gallery.us / CONFIG.gallery.food.
+     ============================================================ -->
+
+<nav class="navbar" id="navbar">
+  <div class="nav-brand" id="navBrand">For You</div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home" class="nav-link active">🏠 Home</a></li>
+    <li><a href="#letter" class="nav-link">💌 Letter</a></li>
+    <li><a href="#gallery" class="nav-link">🖼️ Gallery</a></li>
+    <li><a href="#arcade" class="nav-link">🍔 Feed Her</a></li>
+    <li><a href="#quiz" class="nav-link">❓ Quiz</a></li>
+    <li><a href="#secret" class="nav-link">🔒 Secret Code</a></li>
+    <li><a href="#surprise" class="nav-link">🎉 Surprise</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <section id="home" class="section hero">
+    <div class="floaters">
+      <span style="left:8%; top:20%; animation-delay:0s;">🎈</span>
+      <span style="right:10%; top:25%; animation-delay:1s;">🎈</span>
+      <span style="left:15%; bottom:15%; animation-delay:2s;">✨</span>
+      <span style="right:12%; bottom:10%; animation-delay:1.5s;">✨</span>
+    </div>
+    <div class="hero-inner">
+      <h1 id="coverTitle">Happy Birthday!</h1>
+      <p id="coverSub">I made you a little website hehe</p>
+      <div class="countdown" id="countdown">  
+      <div class="countdown-digits" id="countdownDigits">
+        <div class="countdown-unit"><span id="cdDays">00</span><small>days</small></div>
+        <div class="countdown-unit"><span id="cdHours">00</span><small>hrs</small></div>
+        <div class="countdown-unit"><span id="cdMins">00</span><small>min</small></div>
+        <div class="countdown-unit"><span id="cdSecs">00</span><small>sec</small></div>
+      </div>
+      <div class="countdown-label" id="countdownLabel">Counting down...</div>
+      </div>
+      <p class="lock-message" id="lockMessage">Come back at midnight — I promise it's worth it 🔒</p>
+      <a href="#letter" class="btn" id="heroStartBtn">Start here 🎁</a>
+    </div>
+  </section>
+
+  <section id="letter" class="section">
+    <div class="letter-card">
+      <div class="tape"></div>
+      <h2 id="letterHeading">Dear Diba,</h2>
+      <div class="letter-body" id="letterBody"></div>
+      <div class="letter-sign" id="letterSign"></div>
+    </div>
+  </section>
+
+  <section id="gallery" class="section">
+    <h2>2026 Gallery</h2>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="us">Muiz's Fav</button>
+      <button class="tab-btn" data-tab="food">Food</button>
+    </div>
+    <div class="gallery-grid" id="galleryUs"></div>
+    <div class="gallery-grid" id="galleryFood" style="display:none;"></div>
+  </section>
+
+  <section id="arcade" class="section">
+    <h2>Feed Her</h2>
+    <p class="game-sub">disebabkan u suka makan, nah game makan-makan satu hehehe. semua makanan tu u suka tapi jangan makan bawang. u kan benci bawang HAHAHAHA.</p>
+    <div class="arcade-scoreboard">
+      <div>Score: <span id="arcadeScore">0</span></div>
+      <div>High Score: <span id="arcadeHigh">0</span></div>
+    </div>
+    <div class="arcade-layout">
+      <div class="arcade-lives" id="arcadeLives"></div>
+      <div class="arcade-field" id="arcadeField">
+        <div class="arcade-face" id="arcadeFace">
+          <img id="arcadeFaceImg" src="" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="arcade-controls">
+      <button class="btn" id="arcadeStartBtn">Start Game 🍽️</button>
+    </div>
+    <div class="arcade-message" id="arcadeMessage"></div>
+  </section>
+
+  <section id="quiz" class="section">
+    <h2>How Well Do You Know Us?</h2>
+    <p class="game-sub">Get all 4 right in a row to reveal the secret code.</p>
+    <div class="code-slots" id="codeSlots">
+      <div class="code-slot" id="slot0">_</div>
+      <div class="code-slot" id="slot1">_</div>
+      <div class="code-slot" id="slot2">_</div>
+      <div class="code-slot" id="slot3">_</div>
+    </div>
+    <div class="quiz-progress" id="quizProgress"></div>
+    <div class="quiz-q" id="quizQ"></div>
+    <div class="quiz-options" id="quizOptions"></div>
+    <div class="quiz-note" id="quizNote"></div>
+    <div class="nav-row">
+      <button class="btn secondary" id="quizNextBtn" style="display:none;">Next question →</button>
+      <button class="btn" id="quizTryAgainBtn" style="display:none;">Try Again 🔁</button>
+    </div>
+  </section>
+
+  <section id="secret" class="section">
+    <h2>Secret Code</h2>
+    <p class="game-sub">Get the code right in the quiz, then unlock this.</p>
+    <div class="secret-photo-wrap">
+      <img id="secretPhotoImg" src="" alt="" class="secret-photo silhouette">
+    </div>
+    <div class="secret-input-row">
+      <input type="text" id="secretCodeInput" maxlength="4" inputmode="numeric" pattern="[0-9]*" placeholder="0000">
+      <button class="btn" id="secretSubmitBtn">Unlock 🔓</button>
+    </div>
+    <div class="secret-message" id="secretMessage"></div>
+  </section>
+
+  <section id="surprise" class="section finale">
+    <h1 id="finaleTitle">Happy Birthday, You.</h1>
+    <p id="finaleBody">However today goes, I hope it's a good one. I love you.</p>
+    <button class="btn" id="confettiBtn">One more surprise 🎉</button>
+  </section>
+
+</main>
+
+<footer class="site-footer">made with love, by muiz (+ChatGPT HSHSHS)</footer>
+
+<!-- Floating gramophone player: drop your mp3 into /music/ and set the
+     filename + title in script.js under CONFIG.song. Drop the vinyl
+     label photo into /images/vinyl-label.jpg -->
+<div class="cd-player" id="cdPlayer">
+  <div class="gramophone-base">
+    <button class="turntable" id="cdDisc" aria-label="Play or pause song" aria-pressed="false">
+      <div class="cd-vinyl" id="cdVinyl">
+        <div class="vinyl-label">
+          <img id="vinylLabelImg" src="images/chisu.jpeg" alt="" onerror="this.style.display='none'">
+        </div>
+      </div>
+      <div class="tonearm">
+        <div class="tonearm-base"></div>
+        <div class="tonearm-arm"></div>
+        <div class="tonearm-needle"></div>
+      </div>
+    </button>
+  </div>
+  <div class="cd-label" id="cdLabel">Tekan sini sayanggg</div>
+  <audio id="audioEl" preload="none"></audio>
+</div>
+
+<!-- Gallery lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+  <button class="lightbox-arrow lightbox-prev" id="lightboxPrev" aria-label="Previous photo">‹</button>
+  <div class="lightbox-content">
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+  <button class="lightbox-arrow lightbox-next" id="lightboxNext" aria-label="Next photo">›</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
