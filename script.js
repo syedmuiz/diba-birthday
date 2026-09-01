@@ -114,7 +114,7 @@ const CONFIG = {
   // Her birthday, in YYYY-MM-DD. The countdown runs to the END of
   // this date (23:59:59). Double-check this is the date you mean.
   birthday: {
-    date: "2026-08-07"
+    date: "2026-09-07"
   },
 
   // Put your mp3 in /music/ and point to it here. This must be a
